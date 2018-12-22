@@ -1,0 +1,265 @@
+/* 第一屏动画 */
+.screen1_description,
+.screen1_image,
+.screen1_shadow{
+    transition: all 1s;
+}
+.screen1_description_animate-init{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+.screen1_description_animate-done,
+.screen1_shadow_animate-done,
+.screen1_image_animate-done{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.screen1_image_animate-init{
+    opacity: 0;
+    transform: translate(0, -100%);
+}
+
+.screen1_shadow_animate-init{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+
+/* 第二屏动画 */
+.screen2_desp1,
+.screen2_desp2,
+.screen2_image{
+    transition: all 1.5s;
+}
+
+.sp1,
+.sp2,
+.sp3{
+    transition: all 1s 1s;
+}
+
+.screen2_desp1_animate-init{
+    opacity: 0;
+    transform: translate(-100%, 0);
+}
+.sp1_animate-init{
+    opacity: 0;
+    transform: translate(-500%, 0);
+}
+.sp2_animate-init,
+.sp3_animate-init{
+    opacity: 0;
+    transform: translate(500%, 0);
+}
+
+.screen2_desp2_animate-init{
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+
+.screen2_image_animate-init{
+    opacity: 0;
+    transform: translate(0, 50%);
+}
+
+.screen2_desp1_animate-done,
+.screen2_desp2_animate-done,
+.screen2_image_animate-done{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* 第三屏动画 */
+.screen3_desp1,
+.screen3_desp2,
+.screen3_image,
+.features{
+    transition: all 1.5s;
+}
+
+.screen3_desp1_animate-init{
+    opacity: 0;
+    transform: translate(0, -100%);
+}
+.screen3_desp2_animate-init{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+
+.screen3_image_animate-init{
+    opacity: 0;
+    transform: translate(0, 50%);
+}
+
+.features_animate-init{
+    opacity: 0;
+    transform: scale(.5);
+}
+.features_animate-done{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.features_item{
+    transition: all .5s;
+    cursor: pointer;
+}
+.features_item:hover{
+    transform: scale(1.1);
+    border-color: rgba(88, 99, 99, .5);
+}
+
+/* 第四屏动画 */
+.screen4_desp1,
+.screen4_desp2,
+.screen4_image{
+    transition: all 1.5s;
+}
+
+.screen4_desp1_animate-init{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+.screen4_desp2_animate-init{
+    opacity: 0;
+    transform: translate(0, -100%);
+}
+
+.screen4_image-1,
+.model_desp1
+{
+    transition: all 1s .5s;
+}
+.screen4_image-2,
+.model_desp2
+{
+    transition: all 1s 1s;
+}
+.screen4_image-3,
+.model_desp3
+{
+    transition: all 1s 1.5s;
+}
+.screen4_image-4,
+.model_desp4
+{
+    transition: all 1s 2s;
+}
+
+.screen4_image-1_animate-init,
+.screen4_image-2_animate-init,
+.screen4_image-3_animate-init,
+.screen4_image-4_animate-init,
+.model_desp1_animate-init,
+.model_desp2_animate-init,
+.model_desp3_animate-init,
+.model_desp4_animate-init{
+    opacity: 0;
+}
+.screen4_image-1_animate-done,
+.screen4_image-2_animate-done,
+.screen4_image-3_animate-done,
+.screen4_image-4_animate-done,
+.model_desp1_animate-done,
+.model_desp2_animate-done,
+.model_desp3_animate-done,
+.model_desp4_animate-done{
+    opacity: 1;
+}
+
+/* 第五屏 */
+.screen5_desp1,
+.screen5_desp2,
+.screen5_image{
+    transition: all 1.5s;
+}
+
+.screen5_desp1_animate-init{
+    opacity: 0;
+    transform: translate(0, -100%);
+}
+.screen5_desp2_animate-init{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+
+.screen5_image_animate-init{
+    opacity: 0;
+    transform: translate(0, 50%);
+}
+
+
+/* 定义帧动画 给小圆点增加呼吸效果 */
+@-webkit-keyframes breath {
+    0%, 100%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+
+/* 使用 */
+.screen_point::before,
+.screen_point::after{
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 94px;
+    background-color: rgba(255, 0, 0, .4);
+    -webkit-animation: breath 2s infinite;
+    border-radius: 50%;
+}
+
+.screen_point::before{
+    /* 设置1s的延迟 使之更自然 */
+    -webkit-animation: breath 2s infinite 1s;
+}
+
+.sp1::before,
+.sp1::after{
+    left: 165px;
+}
+
+
+/* 设置头部导航条样式： 当滚动条 high>80 即大于导航条本身高度时，添加如下样式 */
+
+.header_changed{
+    transition: all 1s;
+}
+.header_changed{
+    background-color: rgba(108, 108, 108, .5);
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.header_changed .nav_item{
+    color: #fff;
+}
+.header_changed .nav_item_active{
+    color: #f01400;
+}
+.header_changed .logo{
+    color: #fff;
+}
+
+
+
+/* 设置侧边导航条样式： 当滚动条 high>80 即大于导航条本身高度时，添加如下样式 */
+.rightNav{
+    transition: all 1s;
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+.rightNav_changed{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
