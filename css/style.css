@@ -322,7 +322,7 @@ nav{
     color: #464a4f;
 }
 .screen5_img{
-    width: 1920px;
+    width: 100%;
     height: 433px;
     left: 50%;
     transform: translate(-50%);
